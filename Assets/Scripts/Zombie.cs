@@ -8,11 +8,13 @@ public class Zombie : MonoBehaviour
 	Vector2 dir;
 	Rigidbody2D rb;
 	public float speed = 2f;
-	// Start is called before the first frame update
+	int i = 0;
+
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
 		player = GameObject.Find("Player").transform;
+		
 	}
 	private void Update()
 	{
@@ -20,13 +22,23 @@ public class Zombie : MonoBehaviour
 			dir = (player.position - transform.position).normalized;
 
 	}
-	// Update is called once per frame
+	
 	void FixedUpdate()
 	{
 		rb.velocity = dir * speed;
 
 		float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+		
 		rb.rotation = angle;
 	}
+	void repeat()
+	{
+		Debug.Log("Call " + i);
+		i++;
+	}
+
+	
+
+	
 
 }
