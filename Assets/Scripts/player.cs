@@ -17,7 +17,8 @@ public class player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Spawn", .5f, 1);
+        InvokeRepeating("Spawn", .4f, 2);
+
         rb2d = GetComponent<Rigidbody2D>();
     }
 
@@ -33,6 +34,7 @@ public class player : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        
         rb2d.MovePosition(rb2d.position + movement * moveSpeed * Time.fixedDeltaTime);
 
         //Vector Math stuff ...

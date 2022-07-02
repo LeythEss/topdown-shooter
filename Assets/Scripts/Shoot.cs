@@ -10,8 +10,10 @@ public class Shoot : MonoBehaviour
     public float bulletForce = 0.01f;
     float fireElapsedTime = 0;
     public float fireDelay = 0.2f;
+
     void Start()
     {
+        
         StartCoroutine(wait());
     }
 
@@ -50,4 +52,5 @@ public class Shoot : MonoBehaviour
 
         
     }
+    
 }
