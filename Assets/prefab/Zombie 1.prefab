@@ -220,6 +220,7 @@ MonoBehaviour:
   - {fileID: 452903592375971199}
   - {fileID: 6439024526168957130}
   health: 50
+  healthbar: {fileID: 0}
 --- !u!114 &-8186957360037473723
 MonoBehaviour:
   m_ObjectHideFlags: 0

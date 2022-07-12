@@ -7,34 +7,36 @@ public class healthManagment : MonoBehaviour
 {
     public Behaviour[] disableOnDeath;
     public float health;
-    bool isdead = false;
+    
     GameObject[] enemies;
     public Image healthbar; //Right before the void TakeDamage()
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
-        enemies = GameObject.FindGameObjectsWithTag("zombie");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        enemies = GameObject.FindGameObjectsWithTag("zombie");
     }
    
 
     public void TakeDamage(float amount)
     {
         health -= amount;
-        healthbar.fillAmount = health / 100; //In the void TakeDamage() 
+        if (gameObject.tag == "Player")
+            healthbar.fillAmount = health / 100; //In the void TakeDamage() 
 
         if (health <= 0)
         {
             health = 0;
             Die();
-            destroyenemy();
+            
         }   
     }
 
@@ -44,7 +46,9 @@ public class healthManagment : MonoBehaviour
         foreach (Behaviour behaviour in disableOnDeath)
         {
             behaviour.enabled = false;
-            isdead = true;
+          
+            if (gameObject.tag == "zombie")
+                destroyenemy();
            
         }
         
@@ -54,13 +58,13 @@ public class healthManagment : MonoBehaviour
     }
     void destroyenemy()
     {
-        foreach (GameObject enemy in enemies)
+        foreach(GameObject enemy in enemies)
         {
-            if (isdead == true)
-            {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
+    
+           
+        
     }
     
 

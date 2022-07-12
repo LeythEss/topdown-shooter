@@ -146,5 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47cfd1b84ebc77143bea82f4f615a9b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 20
   enemyTag: zombie
