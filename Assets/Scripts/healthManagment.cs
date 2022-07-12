@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;  //At the top of the script
 
 public class healthManagment : MonoBehaviour
 {
@@ -9,7 +9,9 @@ public class healthManagment : MonoBehaviour
     public float health;
     bool isdead = false;
     GameObject[] enemies;
-    
+    public Image healthbar; //Right before the void TakeDamage()
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,8 @@ public class healthManagment : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
+        healthbar.fillAmount = health / 100; //In the void TakeDamage() 
+
         if (health <= 0)
         {
             health = 0;

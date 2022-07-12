@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 
 public class player : MonoBehaviour
@@ -10,6 +12,7 @@ public class player : MonoBehaviour
     public float moveSpeed = 5f;
     Rigidbody2D rb2d;
     public GameObject zombiePrefab;
+    public Transform target;
 
 
 
@@ -27,7 +30,6 @@ public class player : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-
         mousePos = Camera.main.ScreenPointToRay(Input.mousePosition).origin;
         
 
